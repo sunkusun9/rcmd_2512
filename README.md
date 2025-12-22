@@ -53,15 +53,17 @@ wsl --update
 ```cmd
 wsl --install --distribution Ubuntu-24.04
 ```
-```cmd
-wsl --set-default Ubuntu-24.04
-```
-
 아이디 패스워드 프롬프트 창에서
 
 ```
 아이디/패스워드 = multi_rcmd / multi_rcmd 
 ```
+
+기본적으로 Ubunto-24.04 환경이 되도록 합니다.
+```cmd
+wsl --set-default Ubuntu-24.04
+```
+
 
 설정
 
@@ -93,6 +95,7 @@ cd /mnt/c/multi_rcmd
 ```bash
 sudo chmod 755 install_docker.sh
 sudo ./install_docker.sh
+sudo usermod -aG docker $USER
 ```
 
 ### 수업자료 다운로드
@@ -144,6 +147,7 @@ wsl에서 실습 폴더로 이동합니다.
 cd /mnt/c/multi_rcmd
 ```
 
+docker-compose.yml 파일을 다운로드 받고, 실습 메인 경로(C:\multi_rcmd)  위치시킵니다.
 
 실습 환경 시작
 ```cmd
