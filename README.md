@@ -53,6 +53,9 @@ wsl --update
 ```cmd
 wsl --install --distribution Ubuntu-24.04
 ```
+```cmd
+wsl --set-default Ubuntu-24.04
+```
 
 아이디 패스워드 프롬프트 창에서
 
