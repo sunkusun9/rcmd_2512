@@ -1,0 +1,43 @@
+services:
+  oracle:
+    image: oracle-rcmd:latest
+    container_name: oracle-db
+    restart: unless-stopped
+    environment:
+      ORACLE_PASSWORD: rcmd_multi
+    ports:
+      - "1521:1521"    
+      - "8080:8080"
+
+  qdrant:
+    image: qdrant_rcmd:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333"    # REST API
+      - "6334:6334"    # gRPC (옵션)
+    restart: unless-stopped
+
+  multi_rcmd:
+    image: multi_rcmd:latest
+    gpus: all
+    container_name: multi_rcmd
+    ports:
+      - "8888:8888"
+      - "5001:5001"
+      - "6006:6006"
+    volumes:
+      - ./model:/app/model # ML 모델 파일
+      - ./dataset:/app/dataset # 데이터셋
+      - ./logs:/app/logs # 애플리케이션 로그
+      - ./container_log:/var/log # 컨테이너 시스템 로그
+      - ./note:/app/note # Jupyter 노트북
+    depends_on:
+      - oracle
+      - qdrant
+    environment:
+      - RCMD_ORACLE_HOST=oracle-db # Oracle 호스트 (환경 변수로 오버라이드)
+      - RCMD_QDRANT_HOST=qdrant # Qdrant 호스트 (환경 변수로 오버라이드)
+
+networks:
+  default:
+    name: rcmd
