@@ -51,7 +51,7 @@ https://www.nvidia.com/ko-kr/drivers/details/241094/
 wsl --update
 ```
 ```cmd
-wsl --install --distribution Ubuntu-24.01
+wsl --install --distribution Ubuntu-24.04
 ```
 
 아이디 패스워드 프롬프트 창에서
