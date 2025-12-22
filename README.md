@@ -96,11 +96,21 @@ sudo ./install_docker.sh
 sudo usermod -aG docker $USER
 ```
 
+wsl을 종료 시킨후
+```bash
+exit
+```
+
+다시 wsl에 접근하면, docker를 sudo 없이 사용할 수 있게 됩니다.
+```bash
+wsl
+```
+
 ### 수업자료 다운로드
 
 **강의장에서는 공유드라이브를 통해 자료를 공유할 예정입니다. 개별적으로 구성하실 경우 아래 경로에 있는 폴더들을 다운로드 받아주세요**
 
-[Gooogle Drive](https://drive.google.com/drive/folders/1B2MWhhEjf1HChP85n9mp8Bp-UvqdvLLA)
+[Google Drive](https://drive.google.com/drive/folders/1B2MWhhEjf1HChP85n9mp8Bp-UvqdvLLA)
 
 #### 폴더별 자료 구성
 
